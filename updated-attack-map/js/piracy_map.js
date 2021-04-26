@@ -194,7 +194,7 @@ d3.json("pirate-data.json").then(function(response) {
 // Update the legend's innerHTML with the last updated time and station count
 function updateLegend(attackTypeCount) {
     document.querySelector(".legend").innerHTML = [
-      "<p class= 'title'> Number of Attacks per Types</p>",
+      "<p class= 'title'> Number of Attacks per Type</p>",
       "<p class='attempted'>Attempted Attacks: " + attackTypeCount.Attempted + "</p>",
       "<p class='boarded'>Boarded Vessels: " + attackTypeCount.Boarded + "</p>",
       "<p class='hijacked'>Hijacked Vessels: " + attackTypeCount.Hijacked + "</p>",
