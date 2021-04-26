@@ -93,7 +93,7 @@ d3.json("pirate-data.json").then(function(response) {
     };
   
     // Create a new marker cluster group
-    var attackMarkers = L.markerClusterGroup();
+    // var attackMarkers = L.markerClusterGroup();
 
     // Loop through data
     for (var i = 0; i < response.length; i++) {
@@ -165,9 +165,9 @@ d3.json("pirate-data.json").then(function(response) {
         attackTypeCount[attackCode]++;
 
         //making sure the marker variable is correct and icons match
-        attackMarkers.addLayer(L.marker(location, {
+        var attackMarkers = L.marker(location, {
             icon: icons[attackCode]
-        }));
+        });
 
         //adding markers to layers created above
         attackMarkers.addTo(layers[attackCode]);
