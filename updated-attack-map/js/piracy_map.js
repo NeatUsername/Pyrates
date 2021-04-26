@@ -169,6 +169,11 @@ d3.json("pirate-data.json").then(function(response) {
             icon: icons[attackCode]
         });
 
+        // //for cluster...something like this..why does this not work with the checkboxes??
+        // attackMarkers.addLayer(L.marker(location,{
+        //     icon: icons[attackCode]
+        // });
+
         //adding markers to layers created above
         attackMarkers.addTo(layers[attackCode]);
 
@@ -194,7 +199,7 @@ function updateLegend(attackTypeCount) {
       "<p class='boarded'>Boarded Vessels: " + attackTypeCount.Boarded + "</p>",
       "<p class='hijacked'>Hijacked Vessels: " + attackTypeCount.Hijacked + "</p>",
       "<p class='fired'>Fired Upon: " + attackTypeCount.Fired + "</p>",
-      "<p class='other'>Other Attacks: " + attackTypeCount.Other + "</p>"
+      "<p class='other'>Suspicious Attacks: " + attackTypeCount.Other + "</p>"
     ].join("");
   }
   
