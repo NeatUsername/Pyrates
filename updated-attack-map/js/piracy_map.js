@@ -189,7 +189,7 @@ d3.json("pirate-data.json").then(function(response) {
 // Update the legend's innerHTML with the last updated time and station count
 function updateLegend(attackTypeCount) {
     document.querySelector(".legend").innerHTML = [
-      "<p class= 'title'> Number of Attack Types</p>",
+      "<p class= 'title'> Number of Attacks per Types</p>",
       "<p class='attempted'>Attempted Attacks: " + attackTypeCount.Attempted + "</p>",
       "<p class='boarded'>Boarded Vessels: " + attackTypeCount.Boarded + "</p>",
       "<p class='hijacked'>Hijacked Vessels: " + attackTypeCount.Hijacked + "</p>",
@@ -198,73 +198,3 @@ function updateLegend(attackTypeCount) {
     ].join("");
   }
   
-
-
-//
-    // // Loop through the cities array and create one marker for each city object
-// for (var i = 0; i < pirateData.length; i++) {
-
-//         //   // Conditionals for countries points
-//         //   var color = "";
-//         //   if (countries[i].points > 200) {
-//         //     color = "yellow";
-//         //   }
-//         //   else if (countries[i].points > 100) {
-//         //     color = "blue";
-//         //   }
-//         //   else if (countries[i].points > 90) {
-//         //     color = "green";
-//         //   }
-//         //   else {
-//         //     color = "red";
-//         //   }
-
-//         // var markers = L.markerClusterGroup();
-
-//         // var location = pirateData[i].location;
-
-//         // if (location) {
-
-//         //     markers.addLayer(L.marker(pirateData[i].location)
-//         //     .bindPop("<h3> Location: " + pirateData[i].loc_det + "</h3> <hr><h3> Attack No: " + pirateData[i].atk_no +  "</h3>" + "<hr><h3> Vessel Type: " + 
-//         //              pirateData[i].vsl_type + "</h3><hr><h3> Date: " + pirateData[i].dt_inc));
-//         // }
-
-//         // myMap.addLayer(markers);
-                
-
-//             //ship icon
-//             var pirateIcon =L.icon({
-//                 iconUrl: 'pirate-icon.jpg',
-//                 iconSize: [30,30],
-//                 color: "#EC102B"
-//             });
-
-//             // Add markers to map
-//                 L.marker(pirateData[i].decMin, {
-//                     icon: pirateIcon
-//                 }).bindPopup("<h3> Location: " + pirateData[i].loc_det + "</h3> <hr><h3> Attack No: " + pirateData[i].atk_no +  "</h3>" + "<hr><h3> Vessel Type: " + 
-//                     pirateData[i].vsl_type + "</h3><hr><h3> Date: " + pirateData[i].dt_inc)
-//                     .addTo(myMap);
-//             }
-
-         
-    
-
-
-
-// // Create a new marker
-// // Pass in some initial options, and then add it to the map using the addTo method
-// var marker = L.marker([45.52, -122.67], {
-//   draggable: False,
-//   title: "My First Marker"
-// }).addTo(myMap);
-
-// // Binding a pop-up to our marker
-// marker.bindPopup("Hello There!");
-
-
-
-//TEST
-
-//Pirate attack data - this was a test before we scraped info from site to see if mapping would work..IT DID!
