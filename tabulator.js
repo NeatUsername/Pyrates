@@ -27,6 +27,7 @@ d3.json("data.json").then(function(response) {
         layout:"fitDataStretch",      //fit columns to width of table
         responsiveLayout:"hide",  //hide columns that dont fit on the table
         tooltips:true,            //show tool tips on cells
+        height: 420,
         columnCalcs:"both",
         movableColumns:true,      //allow column order to be changed
         resizableRows:true,
