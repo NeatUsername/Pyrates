@@ -54,6 +54,7 @@ var overlays = {
 var myMap = L.map("map", {
     center: [15.5994, -28.6731],
     zoom: 3,
+    minZoom:2,
     layers: [lightMap, layers.Attempted, layers.Boarded, layers.Hijacked, layers.Fired, layers.Other]
   });
 
@@ -92,8 +93,8 @@ d3.json("pirate-data.json").then(function(response) {
         Other: 0
     };
   
-    // Create a new marker cluster group
-    // var attackMarkers = L.markerClusterGroup();
+    // // Create a new marker cluster group
+    // var attackMarkers = new L.markerClusterGroup();
 
     // Loop through data
     for (var i = 0; i < response.length; i++) {
@@ -101,35 +102,40 @@ d3.json("pirate-data.json").then(function(response) {
         // Set the data location property to a variable
         var location = response[i].decMin;
 
-        // //attackType variable so we can use it with diff icons
-        // var attackType = Object.assign({}, response[i], attackType[i]);
+        // //Create a new marker cluster group
+        // var attackMarkers =  new L.MarkerClusterGroup();
+
     
         //diff pirate icons
         var icons ={
             Attempted: L.ExtraMarkers.icon({
                 icon: "ion-android-boat",
                 markerColor: "blue",
+                svgOpacity: 0.5,
                 size: 32
-
             }),
             Boarded : L.ExtraMarkers.icon({
                 icon: "ion-android-boat",
                 markerColor: 'yellow',
+                svgOpacity: 0.5,
                 size: 32
             }),
             Hijacked : L.ExtraMarkers.icon({
                 icon: "ion-android-boat",
                 markerColor: 'red',
+                svgOpacity: 0.5,
                 size: 32
             }),
             Fired : L.ExtraMarkers.icon({
                 icon: "ion-android-boat",
                 markerColor: 'green',
+                svgOpacity: 0.5,
                 size: 32
             }),
             Other : L.ExtraMarkers.icon({
                 icon: "ion-android-boat",
                 markerColor: 'black',
+                svgOpacity: 0.5,
                 iconColor: "white",
                 size: 32
             })
@@ -172,7 +178,7 @@ d3.json("pirate-data.json").then(function(response) {
         // //for cluster...something like this..why does this not work with the checkboxes??
         // attackMarkers.addLayer(L.marker(location,{
         //     icon: icons[attackCode]
-        // });
+        // }));
 
         //adding markers to layers created above
         attackMarkers.addTo(layers[attackCode]);
@@ -181,10 +187,14 @@ d3.json("pirate-data.json").then(function(response) {
         attackMarkers.bindPopup("<h3> Attack Type: " + response[i].attackType + "</h3> <hr><h3> Vessel Type: " + response[i].vesselType + 
                                 "</h3><hr><h3> Date: " + response[i].date + "</h3><hr><h3> Narrative: </h3>" + "<p>" + response[i].Narrative + "</p>");
         
-        
+        // //mouseover/hover
+        // attackMarkers.on("mouseover", function(e){
+        //     this.openPopup();
+        // });
   
         // Add our marker cluster layer to the map
         myMap.addLayer(attackMarkers);
+
 
         // Call the updateLegend function, which will... update the legend!
         updateLegend(attackTypeCount);
