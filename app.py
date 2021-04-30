@@ -1,4 +1,3 @@
-
 import numpy as np
 import pymongo
 from flask import Flask, jsonify

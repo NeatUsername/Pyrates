@@ -1,12 +1,12 @@
 
 // Grab the data with d3
-d3.json("http://127.0.0.1:5000/api/v1.0/data").then(function(response) {
+d3.json("data.json").then(function(response) {
 
   console.log(response.length);
   // console.log(response);
 
     // //initialize table
-    var table = new Tabulator("#pirate_table", {
+    var table = new Tabulator("#example-table", {
         data:response, //assign data to table
         layout:"fitDataStretch",      //fit columns to width of table
         responsiveLayout:"hide",  //hide columns that dont fit on the table
