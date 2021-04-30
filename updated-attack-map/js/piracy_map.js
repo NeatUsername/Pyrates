@@ -3,7 +3,7 @@
 //grayscale map layer
 var lightMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
+    maxZoom: 15,
     id: "light-v10",
     accessToken: API_KEY
 });
@@ -11,7 +11,7 @@ var lightMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{
 //satellite map layer
 var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
+    maxZoom: 15,
     id: "mapbox.satellite",
     accessToken: API_KEY
 });
@@ -19,7 +19,7 @@ var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}
 //dark map
 var darkMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
+  maxZoom: 15,
   id: "dark-v10",
   accessToken: API_KEY
 });
@@ -76,13 +76,11 @@ info.onAdd = function() {
 // Add the info legend to the map
 info.addTo(myMap);
 
-
+//link to Flask
+var flaskURL = 'http://127.0.0.1:5000/api/v1.0/data'
 
 // Grab the data with d3
-d3.json("http://127.0.0.1:5000/api/v1.0/data").then(function(response) {
-
-    // Create a new marker cluster group
-    var markers = L.markerClusterGroup();
+d3.json(flaskURL).then(function(response) {
 
     //create count for the types of attacks
     var attackTypeCount = {
@@ -92,26 +90,18 @@ d3.json("http://127.0.0.1:5000/api/v1.0/data").then(function(response) {
         Fired: 0,
         Other: 0
     };
-  
-    // // Create a new marker cluster group
-    // var attackMarkers = new L.markerClusterGroup();
-    console.log(response);
 
     // Loop through data
     for (var i = 0; i < response.length; i++) {
   
         // Set the data location property to a variable
         var location = response[i]["Decimal Minutes"];
-        // console.log(location);
+        console.log(location);
         var loc2 = location.split(",");
         var lat = parseFloat(loc2[0].slice(1,6));
         var long = parseFloat(loc2[1].slice(0,6));
         var coord = [lat, long];
-        console.log(coord);
-        
-
-        // //Create a new marker cluster group
-        // var attackMarkers =  new L.MarkerClusterGroup();
+        //console.log(coord);
 
     
         //diff pirate icons
@@ -183,10 +173,6 @@ d3.json("http://127.0.0.1:5000/api/v1.0/data").then(function(response) {
             icon: icons[attackCode]
         });
 
-        // //for cluster...something like this..why does this not work with the checkboxes??
-        // attackMarkers.addLayer(L.marker(location,{
-        //     icon: icons[attackCode]
-        // }));
 
         //adding markers to layers created above
         attackMarkers.addTo(layers[attackCode]);
