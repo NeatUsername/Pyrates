@@ -138,14 +138,6 @@ d3.json(flaskURL).then(function(response) {
                 size: 32
             })
         }  
-        
-        var pirateIcon2 =L.ExtraMarkers.icon({
-            icon: "ion-android-boat",
-            markerColor: 'red',
-            size: 32,
-            shape:"circle"
-        
-          });
 
   
         // if statements for diff icons and attack types - making var. attackCode so code is cleaner in next step
@@ -180,15 +172,9 @@ d3.json(flaskURL).then(function(response) {
         //binding popups to the markers
         attackMarkers.bindPopup("<h3> Attack Type: " + response[i]["Type of Attack"] + "</h3> <hr><h3> Vessel Type: " + response[i]["Type of Vessel"] + 
                                 "</h3><hr><h3> Date: " + response[i]["Incident Date"] + "</h3><hr><h3> Narrative: </h3>" + "<p>" + response[i]["Narrative"] + "</p>");
-        
-        // //mouseover/hover
-        // attackMarkers.on("mouseover", function(e){
-        //     this.openPopup();
-        // });
   
-        // Add our marker cluster layer to the map
+        // Add our markers and cluster layer to the map
         myMap.addLayer(attackMarkers);
-
 
         // Call the updateLegend function, which will... update the legend!
         updateLegend(attackTypeCount);
