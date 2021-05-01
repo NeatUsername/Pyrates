@@ -26,7 +26,7 @@ var darkMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z
 
 //add baseMaps so we can filter through different maps
 var baseMaps = {
-    "Grayscale": lightMap,
+    "Light Map": lightMap,
     "Dark Map":darkMap,
     "Satellite": satelliteMap
 
