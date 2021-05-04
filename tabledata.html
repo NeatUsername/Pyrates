@@ -15,32 +15,29 @@
   <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"></script>
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand float-md-start" href="index.html">Latitude</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Plots
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="vis_temp.html">Max Temperature</a></li>
-              <li><a class="dropdown-item" href="vis_humidity.html">Humidity</a></li>
-              <li><a class="dropdown-item" href="vis_clouds.html">Cloudiness</a></li>
-              <li><a class="dropdown-item" href="vis_wind_speed.html">Wind Speed</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Comparisons.html">Comparisons</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="data.html">Data</a>
-          </li>            
-        </ul>
-      </div>
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:8000/Desktop/Personal-Class/Project%202/Pyrates/index.html">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:8000/Desktop/Personal-Class/Project%202/Pyrates/updated-attack-map/pirate-attack-map.html">World Map <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:8000/Desktop/Personal-Class/Project%202/Pyrates/charts.html">Charts <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:8000/Desktop/Personal-Class/Project%202/Pyrates/tabledata.html">Data Table <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:8000/Desktop/Personal-Class/Project%202/Pyrates/updated-attack-map/pirate-cluster.html">Map 2 <span class="sr-only"></span></a>
+        </li>
+      </ul>
     </div>
   </nav>
   <div class="container">  
@@ -57,7 +54,7 @@
       </div>      
     </div>
 
-    <div id="pirate_table"></div> 
+    <div id="example-table"></div> 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <script type="text/javascript" src="tabulator.js"></script>
